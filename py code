@@ -1,0 +1,25 @@
+import random
+life=3
+lis=["red","blue","green"]
+c=random.choice(lis)
+print(c)
+display=[]
+for i in range(len(c)):
+    display+= '_'
+print(*display)
+over=False
+while not over:
+    guess=input("Guess a letter : ").lower()
+    for ci in range(len(c)):
+        l=c[ci]
+        if l==guess:
+            display[ci]=guess
+    print(*display)
+    if guess not in c:
+        life-=1
+        if life ==0:
+            over = True
+            print("You Lose ... ")
+    if '-' not in display:
+        over=True
+        print("You Win !!! ")
